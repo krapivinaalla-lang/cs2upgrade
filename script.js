@@ -352,3 +352,5 @@ inventory.push(currentSkin);
     rarityEffect(currentSkin);
 
 }, 5000);
+
+}
