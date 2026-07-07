@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Upgrade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>CS2 Upgrade</h1>
+        <p>Открывай кейсы и улучшай свои скины</p>
+    </header><div class="balance">
+    💰 Баланс: <span id="money">1000</span>$
+</div>
+
+    <main>
+
+        <section class="case">
+            <h2>🔥 Кейсы</h2>
+            <div class="case-box">
+    <p>🎁 Обычный кейс</p>
+
+    <p>
+        🔫 Glock — 50%<br>
+        🔵 AK-47 — 30%<br>
+        🟣 AWP — 15%<br>
+        🔴 M4A4 — 4%<br>
+        🟡 Karambit — 1%
+    </p>
+
+    <button onclick="openCase()">Открыть кейс</button>
+</div>
+        </section>
+
+
+        <section class="upgrade">
+            <h2>⚡ Upgrade</h2>
+
+            <div class="skin">
+                <p>Твой скин</p>
+                <h3>🔫 AK-47 | Redline</h3>
+            </div>
+
+            <button onclick="upgradeSkin()">Улучшить</button>
+
+        </section>
+
+    </main><div class="roulette">
+
+    <div class="arrow">▼</div>
+
+    <div id="roulette-items">
+        
+    </div>
+
+</div>
+
+
+<div id="result">
+    Результат появится здесь
+</div><div class="inventory">
+    <h2>🎒 Инвентарь</h2>
+    <div id="inventory">
+        Пусто
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
