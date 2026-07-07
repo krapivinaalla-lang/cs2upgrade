@@ -327,8 +327,9 @@ function openPremiumCase(){
 
     currentSkin = premiumSkins[random];
 
+startRoulette(currentSkin);
 
-    inventory.push(currentSkin);
+inventory.push(currentSkin);
 
 
     localStorage.setItem(
@@ -340,7 +341,14 @@ function openPremiumCase(){
     updateInventory();
 
 
-    document.getElementById("result").innerHTML =
-    "💎 Премиум кейс: " + currentSkin.name;
+    setTimeout(function(){
 
-}
+    document.getElementById("result").innerHTML =
+    "💎 Премиум кейс получил:<br>" +
+    currentSkin.name +
+    "<br>⭐️ " +
+    currentSkin.rarity;
+
+    rarityEffect(currentSkin);
+
+}, 5000);
