@@ -70,16 +70,18 @@ function getRandomSkin() {
 function openCase() {
 
     if (money < casePrice) {
-    document.getElementById("result").innerHTML = "❌ Недостаточно денег";
-    return;
-}
+        document.getElementById("result").innerHTML = "❌ Недостаточно денег";
+        return;
+    }
 
-money -= casePrice;
+    money -= casePrice;
 
-localStorage.setItem("money", money);
+    localStorage.setItem("money", money);
 
-document.getElementById("result").innerHTML =
-"🎰 Открываем кейс...";
+    document.getElementById("money").innerHTML = money;
+
+    document.getElementById("result").innerHTML =
+    "🎰 Открываем кейс...";
     document.getElementById("money").innerHTML = money;
 
 currentSkin = getRandomSkin();
