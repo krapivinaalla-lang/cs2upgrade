@@ -1,6 +1,7 @@
 console.log("CS2 Upgrade запущен!");
 
 let money = 1000;
+let casePrice = 300;
 let inventory = [];
 
 const skins = [
@@ -64,12 +65,12 @@ function getRandomSkin() {
 
 function openCase() {
 
-    if (money < 100) {
+    if (money < casePrice) {
         document.getElementById("result").innerHTML = "❌ Недостаточно денег";
         return;
     }
 
-    money -= 100;document.getElementById("result").innerHTML =
+    money -= casePrice;document.getElementById("result").innerHTML =
 "🎰 Открываем кейс...";
     document.getElementById("money").innerHTML = money;
 
