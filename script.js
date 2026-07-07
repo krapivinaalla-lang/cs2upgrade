@@ -4,6 +4,7 @@ let money = localStorage.getItem("money")
     ? Number(localStorage.getItem("money"))
     : 1000;
 let casePrice = 300;
+let premiumPrice = 1000;
 let inventory = localStorage.getItem("inventory")
     ? JSON.parse(localStorage.getItem("inventory"))
     : [];
@@ -292,3 +293,54 @@ function rarityEffect(skin) {
 }
 document.getElementById("money").innerHTML = money;
 updateInventory();
+function openPremiumCase(){
+
+    if (money < premiumPrice) {
+
+        document.getElementById("result").innerHTML =
+        "❌ Недостаточно денег";
+
+        return;
+    }
+
+
+    money -= premiumPrice;
+
+
+    document.getElementById("money").innerHTML = money;
+
+
+    localStorage.setItem("money", money);
+
+
+    let premiumSkins = [
+        skins[0],
+        skins[1],
+        skins[2],
+        skins[4]
+    ];
+
+
+    let random =
+    Math.floor(Math.random() * premiumSkins.length);
+
+
+    currentSkin = premiumSkins[random];
+
+
+    inventory.push(currentSkin);
+
+
+    localStorage.setItem(
+        "inventory",
+        JSON.stringify(inventory)
+    );
+
+
+    updateInventory();
+
+
+    document.getElementById("result").innerHTML =
+    "💎 Премиум кейс: " + currentSkin.name;
+
+}
