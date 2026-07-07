@@ -1,8 +1,12 @@
 console.log("CS2 Upgrade запущен!");
 
-let money = 1000;
+let money = localStorage.getItem("money")
+    ? Number(localStorage.getItem("money"))
+    : 1000;
 let casePrice = 300;
-let inventory = [];
+let inventory = localStorage.getItem("inventory")
+    ? JSON.parse(localStorage.getItem("inventory"))
+    : [];
 
 const skins = [
 {
@@ -70,7 +74,7 @@ function openCase() {
         return;
     }
 
-    money -= casePrice;document.getElementById("result").innerHTML =
+    localStorage.setItem("money", money);document.getElementById("result").innerHTML =
 "🎰 Открываем кейс...";
     document.getElementById("money").innerHTML = money;
 
@@ -78,7 +82,7 @@ currentSkin = getRandomSkin();
 
 startRoulette(currentSkin);
 
-inventory.push(currentSkin);
+inventory.push(currentSkin);localStorage.setItem("inventory", JSON.stringify(inventory));
 
     updateInventory();
 
@@ -178,7 +182,8 @@ function sellSkin(index) {
     document.getElementById("money").innerHTML = money;
 
 
-    inventory.splice(index, 1);
+    inventory.splice(index, 1);localStorage.setItem("inventory", JSON.stringify(inventory));
+localStorage.setItem("money", money);
 
     updateInventory();
 
@@ -272,3 +277,5 @@ function rarityEffect(skin) {
     }
 
 }
+document.getElementById("money").innerHTML = money;
+updateInventory();
