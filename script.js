@@ -70,37 +70,44 @@ function getRandomSkin() {
 function openCase() {
 
     if (money < casePrice) {
-        document.getElementById("result").innerHTML = "❌ Недостаточно денег";
+        document.getElementById("result").innerHTML =
+        "❌ Недостаточно денег";
         return;
     }
 
-    money -= casePrice;
+    money = money - casePrice;
+
+    document.getElementById("money").innerHTML = money;
 
     localStorage.setItem("money", money);
 
-    document.getElementById("money").innerHTML = money;
-
     document.getElementById("result").innerHTML =
     "🎰 Открываем кейс...";
-    document.getElementById("money").innerHTML = money;
 
-currentSkin = getRandomSkin();
+    currentSkin = getRandomSkin();
 
-startRoulette(currentSkin);
+    startRoulette(currentSkin);
 
-inventory.push(currentSkin);localStorage.setItem("inventory", JSON.stringify(inventory));
+    inventory.push(currentSkin);
+
+    localStorage.setItem(
+        "inventory",
+        JSON.stringify(inventory)
+    );
 
     updateInventory();
 
     setTimeout(function(){
 
-    document.getElementById("result").innerHTML =
-    "🎁 Ты получил: " + currentSkin.name +
-    "<br>⭐️ Редкость: " + currentSkin.rarity;rarityEffect(currentSkin);
+        document.getElementById("result").innerHTML =
+        "🎁 Ты получил: " + currentSkin.name +
+        "<br>⭐️ Редкость: " + currentSkin.rarity;
 
-}, 1500);
+        rarityEffect(currentSkin);
 
-} 
+    }, 1500);
+
+}
 
 
 function upgradeSkin() {
